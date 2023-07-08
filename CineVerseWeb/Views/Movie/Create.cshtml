@@ -1,0 +1,55 @@
+@model Movie
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add Movie</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ReleaseYear"></label>
+            <input asp-for="ReleaseYear" class="form-control" />
+            <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Genre"></label>
+            <input asp-for="Genre" class="form-control" />
+            <span asp-validation-for ="Genre" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Director"></label>
+            <input asp-for="Director" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Actors"></label>
+            <input asp-for="Actors" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Duration"></label>
+            <input asp-for="Duration" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-outline-primary" style="width:150px">Add</button>
+        <a asp-controller="Movie" asp-action="Index" class="btn btn-outline-secondry" style="width:200px">
+            <i class="bi bi-arrow-left"></i> &nbsp; Back to List
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

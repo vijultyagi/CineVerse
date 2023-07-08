@@ -1,0 +1,7 @@
+﻿Steps:
+
+#Generate  Migration
+1. command: dotnet ef migrations add CreateUserModel
+
+#Apply Migrations to the Database
+2. command: dotnet ef database update

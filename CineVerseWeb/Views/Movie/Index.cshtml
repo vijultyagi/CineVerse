@@ -1,0 +1,90 @@
+@model IEnumerable<Movie>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2 class="text-primary">Movie list</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Movie" asp-action="Create" class="btn btn-outline-primary">
+                <i class="bi bi-plus-circle-fill"></i> &nbsp; Add New Movie
+            </a>
+        </div>
+    </div>
+
+    <br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Decsription
+                </th>
+                <th>
+                    Release Year
+                </th>
+                <th>
+                    Genre
+                </th>
+                <th>
+                    Director
+                </th>
+                <th>
+                    Actors
+                </th>
+                <th>
+                    Duration
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Title
+                    </td>
+                    <td>
+                        @obj.Description
+                    </td>
+                    <td>
+                        @obj.ReleaseYear
+                    </td>
+                    <td>
+                        @obj.Genre
+                    </td>
+                    <td>
+                        @obj.Director
+                    </td>
+                    <td>
+                        @obj.Actors
+                    </td>
+                    <td>
+                        @obj.Duration
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Movie" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-outline-secondry">
+                                <i class="bi bi-pencil-fill"></i> &nbsp; Edit
+                            </a>
+                            <a asp-controller="Movie" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-outline-warning">
+                                <i class="bi bi-trash-fill"></i> &nbsp; Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
